@@ -11,14 +11,27 @@ diagnosisButton.onclick = () => {
 
   //  診断結果表示エリアの作成
   resultDivision.innerText = ''
-  const header = document.createElement('h3')
-  header.innerText = '診断結果'
-  resultDivision.appendChild(header)
+  //  headerDivisionの作成
+  const headerDivision = document.createElement('div')
+  headerDivision.setAttribute('class', 'card-header text-bg-primary')
+  headerDivision.innerText = '診断結果'
+
+  // bodyDivisionの作成
+  const bodyDivision = document.createElement('div')
+  bodyDivision.setAttribute('class', 'card-body')
 
   const paragraph = document.createElement('p')
+  paragraph.setAttribute('class', 'card-text')
   const result = diagnosis(userName)
   paragraph.innerText = result
-  resultDivision.appendChild(paragraph)
+  bodyDivision.appendChild(paragraph)
+
+  // resultDivisionにBootstrapのスタイルを適用
+  resultDivision.setAttribute('class', 'card')
+
+  // headerDivisionとbodyDivisionをresultDivisionに差し込む
+  resultDivision.appendChild(headerDivision)
+  resultDivision.appendChild(bodyDivision)
 
   // ポストエリアの作成
   postDivision.innerText = ''
