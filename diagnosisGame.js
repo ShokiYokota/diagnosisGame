@@ -3,6 +3,7 @@ const userNameInput = document.getElementById('user-name')
 const diagnosisButton = document.getElementById('diagnosis')
 const resultDivision = document.getElementById('result-area')
 const postDivision = document.getElementById('post-area')
+let isComposing = false
 
 diagnosisButton.onclick = () => {
   const userName = userNameInput.value
@@ -90,12 +91,21 @@ function diagnosis(userName) {
   return result
 }
 
-// Enterキーを押された時も結果を表示させる
-userNameInput.onkeydown = (event) => {
-  if (event.key === 'Enter') {
+// IME入力中かどうかの判断
+userNameInput.addEventListener('compositionstart', (event) => {
+  isComposing = true
+})
+
+userNameInput.addEventListener('compositionend', (event) => {
+  isComposing = false
+})
+
+//　IME入力中でないかつEnterを押された時も結果を表示させる
+userNameInput.addEventListener('keydown', (event) => {
+  if (!isComposing && event.key === 'Enter') {
     diagnosisButton.onclick()
   }
-}
+})
 
 //テストコード
 console.assert(
