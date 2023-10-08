@@ -14,7 +14,7 @@ diagnosisButton.onclick = () => {
   resultDivision.innerText = ''
   //  headerDivisionの作成
   const headerDivision = document.createElement('div')
-  headerDivision.setAttribute('class', 'card-header text-bg-primary')
+  headerDivision.setAttribute('class', 'card-header')
   headerDivision.innerText = '診断結果'
 
   // bodyDivisionの作成

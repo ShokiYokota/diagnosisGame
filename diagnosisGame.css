@@ -1,17 +1,7 @@
-body {
-  background-color: black;
-  color: white;
-  width: 500px;
-  margin-right: auto;
-  margin-left: auto;
+.btn-primary {
+  --bs-btn-bg: #1d9bf0;
 }
-button {
-  padding: 5px 20px;
+.card-header {
+  color: white;
   background-color: #1d9bf0;
-  color: white;
-  border-style: none;
-  border-radius: 2.5em;
-}
-input {
-  height: 20px;
 }
